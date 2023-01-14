@@ -1,0 +1,28 @@
+{% extends "mainapp/_layout.html" %}
+{% block content %}
+<br>
+<p>login page</p>
+
+{% if not user.is_authenticated %}
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br><br>
+    <input type="submit" value="Log In">
+</form>
+{% else %}
+<a href="{% url 'logout' %}">logout</a>
+{% endif %}
+{% for message in messages %}
+<script>
+  alert('{{message}}')
+
+</script>
+{% endfor %}
+
+{% endblock %}

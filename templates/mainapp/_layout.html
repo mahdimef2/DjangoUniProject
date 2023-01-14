@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+<header>
+    <link rel="stylesheet" href="{% static '/site.css' %}">
+      <title>Simple Navigation</title>
+</header>
+    <body>
+<div class="navbar">
+    <div>
+      <button class="nav-button">Home</button>
+    </div>
+    <div>
+      <button class="nav-button">Login</button>
+      <button class="nav-button">Register</button>
+    </div>
+  </div>
+<br>
+<br>
+    {% block content %}
+
+    {% endblock %}
+
+    </body>
+
+</html>

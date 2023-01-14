@@ -1,0 +1,14 @@
+{% extends "mainapp/_layout.html" %}
+{% block content %}
+<br>
+<p>hi index page</p>
+<form method="post" action="{% url 'index' %}">
+    {% csrf_token %}
+
+    {{ register_form.as_p }}
+
+    <br><br>
+    <input type="submit" value="register">
+
+</form>
+{% endblock %}
