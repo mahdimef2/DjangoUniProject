@@ -1,0 +1,48 @@
+{% extends "mainapp/_layout.html" %}
+{% block content %}
+<br>
+<h1 class="title"> you can add your social link to database  </h1>
+
+{% if user.is_authenticated %}
+
+<form method="post" action="{% url 'addsocial' %}">
+    {% csrf_token %}
+    <label for="user_id">social_name link:</label>
+    <input type="text" id="social_name" name="social_name">
+    <br><br>
+    <input type="submit" value="add social network ...">
+</form>
+
+
+<table style="border: 1px solid black;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">User ID</th>
+            <th style="border: 1px solid black;">Social Network Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for link in social_network_links %}
+        <tr>
+            <td style="border: 1px solid black;">{{ link.user_name }}</td>
+            <td style="border: 1px solid black;">{{ link.social_network_link }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+
+<p>-- you should login first  --</p>
+<br>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+{% for message in messages %}
+<script>
+  alert('{{message}}')
+
+</script>
+
+{% endfor %}
+
+{% endblock %}

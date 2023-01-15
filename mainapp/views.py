@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from mainapp.forms import RegisterForm
+from mainapp.models import SocialNetwork
 
 
 class Index(TemplateView):
@@ -53,26 +54,6 @@ class Auth(TemplateView):
             messages.success(request, "you are logggged in ")
             return redirect("login")
 
-    def logout(self, request, *args, **kwargs):
-        logoutuser(request)
-        redirect("login")
-
-
-class Auth(TemplateView):
-    template_name = "mainapp/login.html"
-
-    def get(self, request, *args, **kwargs):
-        return self.render_to_response({})
-
-    def post(self, request, *args, **kwargs):
-        _username = request.POST["username"]
-        _password = request.POST["password"]
-        _user = authenticate(request, username=_username, password=_password)
-        if _user is not None:
-            login(request, _user)
-            messages.success(request, "you are logggged in ")
-            return redirect("login")
-
 
 @login_required(login_url='login')
 def logoutuser(request):
@@ -85,3 +66,25 @@ class aboutus(TemplateView):
 
     def get(self, request, *args, **kwargs):
         return self.render_to_response({})
+
+
+# @login_required(login_url='login')
+class AddSocial(TemplateView):
+    template_name = "mainapp/profile.html"
+
+    def get(self, request, *args, **kwargs):
+        social_network_links = SocialNetwork.objects.filter(user_name=request.user.username)
+        if social_network_links is not None:
+            return render(request, 'mainapp/profile.html', {'social_network_links': social_network_links})
+        return self.render_to_response({})
+
+    def post(self, request, *args, **kwargs):
+        social_name = request.POST["social_name"]
+        data = SocialNetwork.objects.create(
+            user_name=request.user.username,
+            social_network_link=social_name)
+        data.save()
+
+        if data is not None:
+            messages.success(request, "added ")
+            return redirect("addsocial")
