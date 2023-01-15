@@ -1,7 +1,7 @@
 {% extends "mainapp/_layout.html" %}
 {% block content %}
 <br>
-<p>login page</p>
+<h1 class="title"> Login Page </h1>
 
 {% if not user.is_authenticated %}
 
@@ -16,7 +16,9 @@
     <input type="submit" value="Log In">
 </form>
 {% else %}
+<p>-- you are logged in you can now logout --</p>
 <a href="{% url 'logout' %}">logout</a>
+
 {% endif %}
 {% for message in messages %}
 <script>

@@ -34,7 +34,7 @@ class Index(TemplateView):
             return redirect("login")
 
         else:
-            messages.error(request, form.errors)
+            messages.error(request, _form.errors)
             return redirect("index")
 
 
@@ -78,3 +78,10 @@ class Auth(TemplateView):
 def logoutuser(request):
     logout(request)
     return redirect('login')
+
+
+class aboutus(TemplateView):
+    template_name = "mainapp/aboutus.html"
+
+    def get(self, request, *args, **kwargs):
+        return self.render_to_response({})

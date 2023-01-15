@@ -2,16 +2,17 @@
 <html>
 <header>
     <link rel="stylesheet" href="{% static '/site.css' %}">
-      <title>Simple Navigation</title>
+      <title>mahdi eshghi django </title>
 </header>
     <body>
 <div class="navbar">
     <div>
-      <button class="nav-button">Home</button>
+      <button class="nav-button"><a href="{% url 'index' %}">HOME</a></button>
+      <button class="nav-button" ><a href="{% url 'login' %}">Login</a> </button>
+      <button class="nav-button" ><a href="{% url 'aboutus' %}">about us</a> </button>
+
     </div>
     <div>
-      <button class="nav-button">Login</button>
-      <button class="nav-button">Register</button>
     </div>
   </div>
 <br>

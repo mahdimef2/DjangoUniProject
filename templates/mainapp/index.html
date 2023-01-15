@@ -1,7 +1,36 @@
 {% extends "mainapp/_layout.html" %}
 {% block content %}
+{% load static %}
 <br>
-<p>hi index page</p>
+
+<h1 class="title"> MainPage with register form </h1>
+<div id="slider">
+    <img src="{% static '/img/a.jpeg' %}" alt="image1">
+    <img src="{% static '/img/b.jpeg' %}" alt="image2">
+    <img src="{% static '/img/c.jpeg' %}" alt="image3">
+    <img src="{% static '/img/d.jpeg' %}" alt="image4">
+</div>
+<script>
+  var slideIndex = 0;
+  var slides = document.getElementById("slider").getElementsByTagName("img");
+
+  function showSlides() {
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 1000); // Change image every 3 seconds
+  }
+
+  showSlides();
+
+</script>
+
+
 <form method="post" action="{% url 'index' %}">
     {% csrf_token %}
 

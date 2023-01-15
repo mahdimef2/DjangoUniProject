@@ -13,6 +13,7 @@ body {
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+      border-radius:10px
     }
     /* CSS for navigation buttons */
     .nav-button {
@@ -24,6 +25,116 @@ body {
       display: inline-block;
       font-size: 16px;
       margin-right: 10px;
+      border-radius:10px
+    }
+    .nav-button:hover {
+      background-color: #ddd;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-right: 10px;
+      border-radius:10px
     }
 
 
+input[type="text"], input[type="password"] , input[type="email"] {
+    width: 100%; /* full width of the container */
+    padding: 12px 20px; /* add some padding */
+    margin: 8px 0; /* add some margin */
+    box-sizing: border-box; /* include the padding and margin in the total width */
+    border: 1px solid #ccc; /* add a border */
+    border-radius: 4px; /* round the corners */
+    background-color: white; /* set the background color to white */
+    font-size: 16px; /* set the font size */
+ display: block;
+    align:center;
+}
+
+/* submit button styling */
+input[type="submit"] {
+    width: 100%; /* full width of the container */
+    background-color: #4CAF50; /* set the background color */
+    color: white; /* set the text color to white */
+    padding: 14px 20px; /* add some padding */
+    margin: 8px 0; /* add some margin */
+    border: none; /* remove the border */
+    border-radius: 4px; /* round the corners */
+    cursor: pointer; /* change cursor on hover */
+    font-size: 16px; /* set the font size */
+    display: block;
+}
+input[type="submit"]:hover {
+    width: 100%; /* full width of the container */
+    background-color: #ffAa10; /* set the background color */
+    color: black; /* set the text color to white */
+    padding: 14px 20px; /* add some padding */
+    margin: 8px 0; /* add some margin */
+    border: none; /* remove the border */
+    border-radius: 4px; /* round the corners */
+    cursor: pointer; /* change cursor on hover */
+    font-size: 16px; /* set the font size */
+}
+
+.title {
+    text-align: center;
+    background-color: transparent; /* no background color */
+    color: blue; /* text color */
+}
+
+/* make the title bold */
+.title {
+    font-weight: bold;
+}
+
+label {
+    text-align: center;
+        font-weight: bold;
+
+}
+
+
+
+body {
+    font-family: Arial, sans-serif; /* set font */
+    padding: 20px; /* add some padding */
+
+}
+h1, h2 {
+    text-align: center; /* center headings */
+
+}
+a {
+    color: blue; /* set link color */
+    text-decoration: none; /* remove underline */
+}
+a:hover {
+    color: red; /* change link color on hover */
+    text-decoration: underline; /* add underline on hover */
+}
+
+
+
+.box{
+    box-shadow: 2px 2px 8px #0022FF;
+    margin:20px;
+    padding:50px;
+    border-radius:10px
+}
+
+#slider {
+    width: 100%; /* set full width */
+    height: 300px; /* set height */
+    overflow: hidden; /* hide overflow */
+}
+
+/* slider images */
+#slider img {
+    width: 50%; /* set full width */
+    height: 90%; /* set full height */
+    object-fit: cover; /* cover the container */
+    transition: all 1s ease; /* add transition */
+    align:center;
+}
